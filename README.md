@@ -1,10 +1,20 @@
-JoomFlex3.0
+Ästhetik und Typografie im responsive web design
 ============
 
-responsive Joomla! 3 template
+Beispieldateien des Vortrags von Johannes Hock auf dem JUG Fulda Treffen am 21.11.2013
 
-JoomFlex uses an off canvas navigation pattern, inspired by David Bushell.
+============
 
-JoomFlex is a more liquid version of JoomSkeleton, by integrating Nathan Smiths unsemantic grid system.
+index-1.html: Rotbraun
+reine css Skalierung der fonts
+font Einbettung per Adobe Edge Web fonts
++ kleine musikalische Überraschung :-)
 
-JoomSkeleton, JoomFluid and JoomFlex are experimental and work in progress.
+index-2.html: Mittelblau
+Skalierung von Äbsätzen und Überschriften mit
+flowtype.js und
+slabtext.js
+font Einbettung per Google Fonts
+
+index-3.html: Olivegrün
+hier: font Einbettung per Webfont Kit und @font-face
