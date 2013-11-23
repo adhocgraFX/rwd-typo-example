@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>responsive demo 2</title>
+<!-- schriften über googlefonts laden -->
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/pocketgrid.css">
+<link rel="stylesheet" href="css/base-2.css">
+<link rel="stylesheet" href="css/responsive-nav.css">
+<script src="js/modernizr.js"></script>
+</head>
+
+<body>
+<nav id="nav" role="navigation" >
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Projects</a></li>
+		<li><a href="#">Blog</a></li>
+	</ul>
+</nav>
+<header role="banner">
+	<div class="logo"><a href="#"> <IMG src="images/logo.png" alt="Joomla!"/></a></div>
+</header>
+<div class="block-group wrapper">
+	<section class="block" role="main" >
+		<article>
+			<h1>Typography</h1>
+			<p>The typography is designed with a harmonical modular scale within its basic styles. All font sizes of paragraphs and headlines are set relative to the default html size of 100% = 16px. The line height is set on a 1.5 base for paragraphs and 1.2 for headlines.</p>
+			<p>Regular paragraphs on small media sizes are set at 100% = 16px, on medium screen sizes at 112,5% = 18px and on larger screen sizes at 125% = 20px. Thereby, they behave on different screen sizes responsive but maintain their visual appearance and line-heights.</p>
+			<h2>Images and text</h2>
+			<p><img src="images/K3.jpg" alt="bild" title="Bildbeschreibung manuell" class="max-image" /></p>
+			<p>Regular paragraphs, following an image, have no indents. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus purus vitae diam posuere nec eleifend elit dictum.</p>
+			<p class="autor">This paragraph is formatted with the <span class="highlight">autor</span> class.</p>
+			<br>
+			<img src="images/K5.jpg" alt="bild" title="Bildbeschreibung manuell" class="max-image" />
+			<p class="bildlegende">This paragraph is formatted with the <span class="highlight">bildlegende</span> class.</p>
+			<p class="lead">This paragraph is formatted with the <span class="highlight">lead class</span> - 125% - usefull for leading parts and teasers. <em>"Lorem Ipsum"-Text ist ein oft genutzter Fülltext von Designern, um das Aussehen von Inhalt zu simulieren.</em></p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus purus vitae diam posuere nec eleifend elit dictum.</p>
+			<ul>
+				<li>Default mobile font scale: 100% ~ 16px body font-size: 1em - 2em</li>
+				<li>tablet font scale: 112.5% ~ 18px body font-size: 1em - 3em</li>
+				<li>desktop MODULOR font scale: 125% ~ 20px body font-size: 1em - 3.4em</li>
+			</ul>
+			<p class="no-indent">body copy</p>
+			<h6>Heading H6</h6>
+			<h5>Heading H5</h5>
+			<h4>Heading H4</h4>
+			<h3>Heading H3</h3>
+			<h2>Heading H2 slab</h2>
+			<h1>Heading H1 slabtext</h1>
+			<blockquote>
+				<p>Tell me and I'll forget; show me and I may remember; involve me and I understand.</p>
+				<cite>Chinese Proverb</cite></blockquote>
+		</article>
+	</section>
+	<aside class="block" role="complementary" >
+		<h5>Sidebar</h5>
+		<p>"Lorem Ipsum"-Text ist ein oft genutzter Fülltext von Designern, um das Aussehen von Inhalt zu simulieren.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus purus vitae diam posuere nec eleifend elit dictum.</p>
+	</aside>
+</div>
+<footer role="contentinfo">
+	<h5>Footer</h5>
+</footer>
+<script src="js/responsive-nav.js"></script> 
+<script src="js/jquery.js"></script> 
+<!-- responsive paragraphs and headlines -->
+<script src="js/flowtype.js"></script> 
+<script src="js/slabtext.js"></script> 
+<script>
+// responsive navi      
+	var navigation = responsiveNav("#nav");
+
+// abstände
+    jQuery(document).ready( function() {
+        jQuery("p").has("img").css({
+            "margin-top": ".75em",
+            "margin-bottom": "1.5em",
+            "text-indent": "0px"});
+        jQuery("p").has("img").addClass("bild");
+    })
+
+// flowtype
+	jQuery('article').flowtype({
+ 		minimum   : 480,
+ 		maximum   : 1280,
+		minFont   : 16,
+ 		maxFont   : 32,
+ 		fontRatio : 30,
+ 		lineRatio : 1.55
+	});
+
+    
+// Function to slabtext the H1 headings
+    function slabTextHeadlines() {
+        jQuery("h1,h2").slabText({
+            // Don't slabtext the headers if the viewport is under 380px
+            "viewportBreakpoint":380
+        });
+    };
+    
+    // Called one second after the onload event for the demo (as I'm hacking the
+    // fontface load event a bit here)
+
+    // Please do not do this in a production environment - you should really use
+    // google WebFont loader events (or something similar) for better control
+    
+    $(window).load(function() {
+        // So, to recap... don't actually do this, it's nasty!
+        setTimeout(slabTextHeadlines, 1000);
+    });
+    
+</script> 
+
+<!--[if lte IE 9]><script src="js/respond.js"></script><![endif]-->
+
+</body>
+</html>
